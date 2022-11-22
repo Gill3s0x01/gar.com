@@ -109,4 +109,57 @@ export const OrdersDetail = styled.div`
       }
     }
   }
+  .total {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    span {
+      font-size: 0.9rem;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+  }
+`;
+
+export const Actions = styled.footer`
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+  .primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+    padding: 12px 24px;
+
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #333;
+    border-radius: 48px;
+    svg {
+      display: flex;
+      align-items: center;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+    padding: 12px 24px;
+    margin-top: 8px;
+    border-radius: 48px;
+    background-color: transparent;
+
+    font-size: 1rem;
+    font-weight: 600;
+    color: #d73035;
+  }
 `;

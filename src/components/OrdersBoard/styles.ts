@@ -47,6 +47,7 @@ export const OrderContainer = styled.div`
     border: 1px solid rgba(204, 204, 204, 0.4);
     margin-top: 24px;
     gap: 4px;
+    outline: none;
 
     & + button {
       margin-top: 24px;
