@@ -152,11 +152,12 @@ export const Actions = styled.footer`
     align-items: center;
     justify-content: center;
 
+    background-color: transparent;
     gap: 8px;
     padding: 12px 24px;
     margin-top: 8px;
     border-radius: 48px;
-    background-color: transparent;
+    border: none;
 
     font-size: 1rem;
     font-weight: 600;
