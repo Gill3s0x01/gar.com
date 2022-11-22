@@ -109,4 +109,15 @@ export const OrdersDetail = styled.div`
       }
     }
   }
+  .total {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    span {
+      font-size: 0.9rem;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+  }
 `;

@@ -16,6 +16,16 @@ export function OrderModal({ visible, order }: OrderModalProps) {
     return null;
   }
 
+  // uma forma de calcular o total => para mostrar só usar formatCurrency(total)
+  // let total = 0;
+  // order.products.forEach(({ product, quantity }) => {
+  //   total += product.price * quantity;
+  // });
+
+  const total = order.products.reduce((total, { product, quantity }) => {
+    return total + product.price * quantity;
+  }, 0);
+
   return (
     <Overlay>
       <ModalBody>
@@ -60,6 +70,11 @@ export function OrderModal({ visible, order }: OrderModalProps) {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="total">
+            <span>Total</span>
+            <strong>{formatCurrency(total)}</strong>
           </div>
         </OrdersDetail>
       </ModalBody>
