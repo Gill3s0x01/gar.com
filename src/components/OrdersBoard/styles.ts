@@ -4,7 +4,7 @@ export const Board = styled.div`
   display: flex;
   flex: 1;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   flex-direction: column;
   padding: 16px;
   border: 1px solid rgba(204, 204, 204, 0.4);
