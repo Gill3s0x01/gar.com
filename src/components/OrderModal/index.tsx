@@ -13,9 +13,19 @@ interface OrderModalProps {
   visible: boolean;
   order: Order | null;
   onClose: () => void;
+  onCancelOrder: () => Promise<void>;
+  isLoading: boolean;
+  onChangeOrderStatus: () => void;
 }
 
-export function OrderModal({ visible, order, onClose }: OrderModalProps) {
+export function OrderModal({
+  visible,
+  order,
+  onClose,
+  onCancelOrder,
+  isLoading,
+  onChangeOrderStatus,
+}: OrderModalProps) {
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === 'Escape') {
@@ -95,20 +105,42 @@ export function OrderModal({ visible, order, onClose }: OrderModalProps) {
         </OrdersDetail>
 
         <Actions>
-          <button type="button" className="primary">
-            <span>
-              {order.status === 'WAITING' && <GiCampCookingPot />}
-              {order.status === 'IN_PRODUCTION' && <AiOutlineFileDone />}
-              {order.status === 'COMPLETED' && <BiArchiveOut />}
-            </span>
-            <strong>
-              {order.status === 'WAITING' && 'Iniciar produção'}
-              {order.status === 'IN_PRODUCTION' && 'Finalizar pedido'}
-              {order.status === 'COMPLETED' && 'Arquivar pedido'}
-            </strong>
-          </button>
+          {order.status === 'COMPLETED' ? (
+            <button
+              type="button"
+              className="primary"
+              disabled={isLoading}
+              onClick={onCancelOrder}
+            >
+              <span>
+                <BiArchiveOut />
+              </span>
+              <strong>Arquivar pedido</strong>
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="primary"
+              disabled={isLoading}
+              onClick={onChangeOrderStatus}
+            >
+              <span>
+                {order.status === 'WAITING' && <GiCampCookingPot />}
+                {order.status === 'IN_PRODUCTION' && <AiOutlineFileDone />}
+              </span>
+              <strong>
+                {order.status === 'WAITING' && 'Iniciar produção'}
+                {order.status === 'IN_PRODUCTION' && 'Finalizar pedido'}
+              </strong>
+            </button>
+          )}
           {order.status != 'COMPLETED' && (
-            <button type="button" className="secondary">
+            <button
+              onClick={onCancelOrder}
+              type="button"
+              className="secondary"
+              disabled={isLoading}
+            >
               <span>
                 <BsTrash />
               </span>
