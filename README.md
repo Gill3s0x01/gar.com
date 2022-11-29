@@ -111,7 +111,7 @@ This project was made using the follow technologies:
 # :rocket: Figma Style Guide
 
 <div align="center">
-  <img src="./assets/styleguide.png" alt="style-guide-colors" widht="450px"/>
+  <img src="./public/Styleguide.png" alt="style-guide-colors" widht="450px"/>
   </br></br>
 </div>
   https://www.figma.com/file/LIB0ZSzRpA9t4tBRw04NuH/GAR.COM?node-id=13%3A686&t=GiPRcVAVSa9SanPB-1
